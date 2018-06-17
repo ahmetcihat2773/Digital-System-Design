@@ -1,0 +1,45 @@
+module fsm(nrst,clk,sten,,stsel,fsmout);
+input nrst; 
+input sten; 
+input stsel; 
+input clk;
+output reg [1:0] fsmout;
+parameter s0=2'b00,s1=2'b01,s2=2'b10,s3=2'b11;
+
+always @(posedge clk or negedge nrst)
+begin
+if(nrst==1'b0)
+fsmout<=s0;
+
+else
+   if(sten==1'b0)
+     fsmout<=fsmout;
+   else
+     begin
+     case(fsmout)
+     s0:
+     if(stsel==1'b1)
+     fsmout<=s1;
+     else
+     fsmout<=s1;
+     s1:
+     if(stsel==1'b1)
+     fsmout<=s2;
+     else
+     fsmout<=s2;
+     s2:
+     if(stsel==1'b1)
+     fsmout<=s0;
+     else
+     fsmout<=s3;
+     s3:
+     if(stsel==1'b1)
+     fsmout<=s1;
+     else
+     fsmout<=s0;
+    default:
+    fsmout<=s0;
+    endcase
+    end
+ end
+endmodule      

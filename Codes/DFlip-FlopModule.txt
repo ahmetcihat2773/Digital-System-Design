@@ -1,0 +1,8 @@
+
+module DFF(CLK,din,dout);
+input din,clk; // din input signal
+output reg dout; // output
+always @(posedge CLK)
+dout<=din
+
+endmodule

@@ -1,0 +1,8 @@
+module Dff(din,nRst,Clk,Dout);
+input din,nRst,Clk;
+reg output Dout;
+wire f;
+f=Din&nRst;
+always@(posedge Clk)
+Dout<=f
+endmodule

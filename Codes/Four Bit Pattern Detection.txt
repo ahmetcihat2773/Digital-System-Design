@@ -1,0 +1,30 @@
+module pattern(pattern,sin,clk,nreset,pcount);
+input [3:0] pattern;
+input clk,sin,nreset;
+output reg [7:0]pcount;
+reg [3:0]temp;
+
+
+always@(posedge clk)
+begin
+temp[3:1]<=temp[2:0];
+temp[0]<=sin;
+end
+
+
+
+always @(posedge clk)
+if(nreset==	1'b0)
+pcount[7:0]<=8'b0;
+else
+if(temp[3:0]==pattern[3:0])
+pcount[7:0]<=pcount[7:0]+8'b1;
+else
+pcount[7:0]<=pcount[7:0];
+
+
+
+
+
+endmodule
+

@@ -1,0 +1,26 @@
+
+
+input ss; //signal that we want to check how long it is active
+reg css; // the signal which is used for just control
+input clk;
+reg [3:0]counter;
+always@(posedge clk)
+css<=ss;  // obtaining the one clock cycle before of ss.
+
+always@(posedge clk)
+begin
+if((ss==1'b1)&&(css==1'b0))  // when there is a transition from 0 to 1 for signal
+counter[3:0]=4'b0;
+else 
+if((ss==1'b1)&& counter[3:0]!=4'd8)  // if counter is not equal to 8 
+counter[3:0]=counter[3:0]+4'd1;
+else 
+counter[3:0]<=counter[3:0];		// we do not want counter to count more than 8 and also It has to be stopped when
+end					// signal is not active.	
+
+
+
+
+
+
+

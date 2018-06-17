@@ -1,0 +1,5 @@
+module Dlatch(Din,LE,Dout);
+input Din,LE;
+output Dout;
+assign Dout=(LE)?(Din):(1'b0);
+endmodule

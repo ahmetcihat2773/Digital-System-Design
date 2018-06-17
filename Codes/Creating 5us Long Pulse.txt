@@ -1,0 +1,14 @@
+module DlatchE(Din,LE,nRst,Dout);
+input Din,LE,nRst;
+output Dout;
+reg aaout;
+	if(nRst==0)
+	aaout=1'b0;
+		else
+		if(LE==0)		
+			aaout=Dout;
+				else 
+					aaout=Din;
+
+					assign Dout=aaout;
+endmodule

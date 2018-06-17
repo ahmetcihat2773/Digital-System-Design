@@ -1,0 +1,10 @@
+module DFF(nRst,Clk,Din,Dout);
+input Din,Clk,nRst;
+output reg Dout;
+always@(posedge Clk or negedge nRst);
+if(nRst==1'b0)
+Dout<=1'b0;
+else
+Dout<=Din;
+endmodule
+

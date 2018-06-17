@@ -1,0 +1,42 @@
+module toplevel(nrst,clk,sin,det3);
+input nrst;
+input clk;
+input sin;
+output reg det3;
+reg [1:0] next;
+parameter s0=2'b00,s1=2'b01,s2=2'b10,s3=2'b11;
+always @(posedge clk or negedge nrst)
+begin
+
+
+if(nrst==1'b0)
+	next<=s0;
+else
+if(sin==1'b0)
+next<=s0;
+else
+begin
+	case(next)
+	s0:
+	   next<=s1;
+	s1:
+	   next<=s2;
+	s2:
+	   next<=s3;
+	s3:
+	   next<=s3;
+	default:
+	next<=s0;
+	endcase
+end
+end
+
+always @(next)
+begin
+	if(next==s3)
+	det3=1'b1;
+	else
+	det3=1'b0;	
+end	
+
+endmodule
