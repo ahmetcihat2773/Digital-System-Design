@@ -11,3 +11,7 @@ else
 
 assign Dout=F;
 endmodule
+//////////////////
+reg means here:
+	if one variable can be changed during execution, you should define this function as reg. 
+	1'b0 means 1 bit binary number whose value is 0
