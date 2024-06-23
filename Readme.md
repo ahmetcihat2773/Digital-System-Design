@@ -36,6 +36,12 @@ Repeats an input signal based on a control signal, useful for data buffering and
 ### 10. Creating a 5us Long Pulse
 Generates a pulse that lasts for 5 microseconds, often used for timing and control signals.
 
+### 11. Finite State Machine (FSM) with 3-State Detection
+A finite state machine that detects a specific three-state sequence.
+
+### 12. General Finite State Machine (FSM)
+A general finite state machine with customizable states and transitions.
+
 ## Usage
 
 1. Clone the repository:
